@@ -1,21 +1,22 @@
 import Bai1.CompositeDesignPattern.FileLeaf;
 import Bai1.CompositeDesignPattern.Folder;
+import Bai1.ObserverDesignPattern.Investor;
+import Bai1.ObserverDesignPattern.Stock;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        FileLeaf file1 = new FileLeaf("file1.txt");
-        FileLeaf file2 = new FileLeaf("file2.txt");
+        Stock stock = new Stock("AAPL");
 
-        Folder folder1 = new Folder("Folder1");
-        folder1.add(file1);
-        folder1.add(file2);
+        Investor inv1 = new Investor("Alice");
+        Investor inv2 = new Investor("Bob");
 
-        Folder root = new Folder("Root");
-        root.add(folder1);
+        stock.attach(inv1);
+        stock.attach(inv2);
 
-        root.showInfo();
+        stock.setPrice(150);
+        stock.setPrice(200);
 
     }
 }
